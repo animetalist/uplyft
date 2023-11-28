@@ -1,0 +1,32 @@
+.contacts {
+  display: grid;
+  align-content: start;
+  max-width: 315px;
+
+  &.page {
+    @media (min-width: 576px) {
+      row-gap: 24px;
+    }
+
+    @media (max-width: 575.98px) {
+      row-gap: 24px;
+    }
+  }
+
+  &.footer {
+    grid-area: contacts;
+    row-gap: 24px;
+  }
+
+  &_item {
+    display: grid;
+    column-gap: 24px;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: start;
+  }
+
+  &_icon {
+    font-size: 24px;
+  }
+}

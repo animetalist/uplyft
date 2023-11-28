@@ -1,0 +1,129 @@
+.hero {
+  display: grid;
+
+  position: relative;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 538px auto;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 20px;
+  }
+
+  @media (min-width: 1200px) {
+    min-height: 680px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  @media (min-width: 576px) and (max-width: 1023.98px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  @media (max-width: 575.98px) {
+    padding-bottom: 40px;
+  }
+
+  &_content {
+    display: grid;
+    justify-items: start;
+
+    @media (min-width: 576px) {
+      max-width: 538px;
+      row-gap: clamp(
+        32px,
+        calc(32px + (48 - 32) * ((100vw - 1200px) / 240)),
+        48px
+      );
+    }
+
+    @media (max-width: 575.98px) {
+      row-gap: 8px;
+    }
+  }
+
+  &_descr {
+    @media (min-width: 576px) {
+      font-size: 24px;
+    }
+
+    @media (max-width: 575.98px) {
+      max-width: 80%;
+    }
+  }
+
+  &_btn {
+    @media (min-width: 576px) {
+      margin-top: 32px;
+    }
+
+    @media (max-width: 575.98px) {
+      margin-top: 12px;
+    }
+  }
+
+  &_pic {
+    position: relative;
+
+    @media (min-width: 1921px) {
+      mask-image: linear-gradient(
+        to right,
+        white calc(100% - 5px),
+        transparent 100%
+      );
+    }
+
+    @media (min-width: 1440px) {
+      max-width: 1100px;
+      width: 57vw;
+    }
+
+    @media (min-width: 576px) and (max-width: 1439.98px) {
+      width: calc(100% + 32px);
+      max-width: 822px;
+    }
+
+    @media (max-width: 1023.98px) {
+      order: -1;
+      justify-self: end;
+    }
+
+    @media (min-width: 576px) and (max-width: 1023.98px) {
+      margin-right: -32px;
+      width: 90%;
+    }
+
+    @media (max-width: 575.98px) {
+      width: calc(100% + 16px);
+      margin-right: -16px;
+    }
+  }
+
+  &_lights {
+    width: min(102%, 1010px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (min-width: 1024px) {
+      margin-left: 95px;
+      top: 0;
+    }
+
+    @media (min-width: 576px) and (max-width: 1023.98px) {
+      margin-left: -14px;
+      top: 289px;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
+}

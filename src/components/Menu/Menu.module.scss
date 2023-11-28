@@ -1,0 +1,95 @@
+.menu {
+  $this: &;
+
+  &.header {
+    display: grid;
+
+    @media (min-width: 1024px) {
+      grid-auto-flow: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 1200px) {
+      column-gap: 24px;
+    }
+
+    @media (min-width: 1024px) and (max-width: 1199.98px) {
+      column-gap: 12px;
+    }
+
+    @media (max-width: 1023.98px) {
+      text-align: center;
+      max-height: 100%;
+      overflow: auto;
+      min-width: 60vw;
+    }
+
+    @media (min-width: 576px) and (max-width: 1023.98px) {
+      row-gap: 24px;
+    }
+
+    #{$this}_link {
+      color: var(--dark-blue);
+      position: relative;
+
+      @media (min-width: 1024px) {
+        font-size: 17px;
+        font-weight: 500;
+
+        &::after {
+          content: '';
+          height: 1px;
+          position: absolute;
+          bottom: 14px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          background: currentColor;
+          transition: width 250ms ease-in-out;
+        }
+
+        &:hover,
+        &:focus-visible {
+          &::after {
+            width: calc(100% - 24px);
+          }
+        }
+      }
+
+      @media (min-width: 576px) and (max-width: 1023.98px) {
+        font-size: 32px;
+      }
+
+      @media (max-width: 575.98px) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 24px;
+      }
+    }
+  }
+
+  &.footer {
+    column-gap: 8px;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+    justify-content: start;
+    margin: -12px;
+
+    #{$this}_link {
+      color: var(--white);
+
+      &:hover,
+      &:focus-visible {
+        color: var(--blue);
+      }
+    }
+  }
+
+  &_link {
+    padding: 12px;
+    display: block;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,57 @@
+.form {
+  display: grid;
+
+  @media (min-width: 576px) {
+    row-gap: 32px;
+  }
+
+  @media (max-width: 575.98px) {
+    row-gap: 24px;
+  }
+
+  &_fields {
+    display: grid;
+
+    @media (min-width: 720px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 32px 20px;
+    }
+
+    @media (max-width: 719.98px) {
+      row-gap: 20px;
+    }
+  }
+
+  &_check {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: start;
+    column-gap: 17px;
+    color: var(--dark-gray);
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  &_checkInput {
+    display: none;
+  }
+
+  &_btn {
+    @media (min-width: 576px) {
+      justify-self: center;
+    }
+
+    @media (min-width: 1024px) {
+      margin-top: 28px;
+    }
+
+    @media (min-width: 576px) and (max-width: 1023.98px) {
+      margin-top: 16px;
+    }
+
+    @media (max-width: 575.98px) {
+      margin-top: 24px;
+    }
+  }
+}

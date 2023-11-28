@@ -1,0 +1,53 @@
+.lights {
+  position: absolute;
+  z-index: -1;
+
+  @media (max-width: 575.98px) {
+    display: none;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    filter: blur(305px);
+    transform: translateZ(0);
+    border-radius: 537px;
+
+    // Firefox only
+    @-moz-document url-prefix() {
+      opacity: 0.1;
+      transform: scale(1.5) translateZ(0);
+    }
+
+    @media (min-width: 1024px) {
+      width: 537px;
+      height: 522px;
+    }
+
+    @media (min-width: 576px) and (max-width: 1023.98px) {
+      width: 403px;
+      height: 392px;
+    }
+  }
+
+  &.primary {
+    &::before {
+      background: var(--sky-blue);
+    }
+
+    &::after {
+      background: var(--blue);
+    }
+  }
+
+  &.secondary {
+    &::before {
+      background: var(--blue);
+    }
+
+    &::after {
+      background: var(--sky-blue);
+    }
+  }
+}

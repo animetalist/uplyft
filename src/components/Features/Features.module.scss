@@ -1,0 +1,137 @@
+.features {
+  $this: &;
+
+  position: relative;
+
+  @media (min-width: 1024px) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  @media (min-width: 576px) and (max-width: 1023.98px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  @media (max-width: 575.98px) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  &_heading {
+    text-align: center;
+  }
+
+  &_list {
+    display: grid;
+
+    @media (min-width: 1024px) {
+      margin-top: 72px;
+      row-gap: 32px;
+    }
+
+    @media (max-width: 1023.98px) {
+      row-gap: 48px;
+    }
+
+    @media (min-width: 576px) and (max-width: 1023.98px) {
+      margin-top: 60px;
+    }
+
+    @media (max-width: 575.98px) {
+      margin-top: 48px;
+    }
+  }
+
+  &_item {
+    display: grid;
+
+    @media (min-width: 576px) {
+      grid-auto-flow: column;
+      column-gap: 60px;
+      justify-content: start;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      max-width: 630px;
+
+      &:nth-child(even) {
+        justify-self: end;
+        text-align: right;
+
+        #{$this}_icon {
+          order: 2;
+        }
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      row-gap: 16px;
+    }
+  }
+
+  &_icon {
+    @media (min-width: 576px) {
+      font-size: 130px;
+    }
+
+    @media (max-width: 575.98px) {
+      font-size: 80px;
+      justify-self: center;
+      margin-bottom: 4px;
+    }
+  }
+
+  &_content {
+    display: grid;
+    row-gap: 16px;
+    align-content: start;
+  }
+
+  &_title {
+    @media (max-width: 575.98px) {
+      max-width: 90%;
+    }
+  }
+
+  &_descr {
+    color: var(--deep-gray);
+
+    @media (max-width: 575.98px) {
+      font-size: 15px;
+    }
+  }
+
+  &_lights {
+    left: 50%;
+    width: 125%;
+    transform: translateX(-50%);
+
+    @media (min-width: 1024px) {
+      top: 173px;
+      margin-right: -60px;
+    }
+
+    @media (max-width: 1023.98px) {
+      top: -195px;
+      margin-left: -34px;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+
+      @media (min-width: 1024px) {
+        top: 353px;
+      }
+
+      @media (max-width: 1023.98px) {
+        top: 761px;
+      }
+    }
+  }
+}

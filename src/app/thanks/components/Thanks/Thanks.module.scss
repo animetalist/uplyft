@@ -1,0 +1,46 @@
+.thanks {
+  padding-top: 60px;
+  display: grid;
+  row-gap: 20px;
+  justify-items: center;
+
+  &_logo {
+    margin-bottom: 16px;
+
+    @media (max-width: 575.98px) {
+      height: 54px;
+      width: 155px;
+    }
+  }
+
+  &_content {
+    display: grid;
+    row-gap: 8px;
+    justify-items: center;
+    text-align: center;
+
+    @media (min-width: 576px) {
+      font-size: 17px;
+      line-height: 1.55;
+      max-width: 640px;
+    }
+
+    @media (max-width: 575.98px) {
+      max-width: 360px;
+    }
+  }
+
+  &_tel {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    column-gap: 8px;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  &_icon {
+    font-size: 24px;
+  }
+}

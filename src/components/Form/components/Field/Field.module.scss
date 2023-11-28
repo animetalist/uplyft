@@ -1,0 +1,114 @@
+.field {
+  $this: &;
+
+  display: grid;
+  position: relative;
+
+  &_label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--dark-gray);
+  }
+
+  &_input {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+    padding: 16px 20px;
+    transition: border-color 250ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      border-color: var(--dark-blue);
+    }
+
+    &[aria-invalid='true'] {
+      border-color: var(--red);
+
+      + #{$this}_error {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &:not(.select, &[aria-invalid='true']) {
+      &:not(:placeholder-shown) {
+        border-color: var(--dark-blue);
+      }
+    }
+
+    &.select {
+      text-align: left;
+      padding-right: 64px;
+      background: var(--white)
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%237E848E' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m17 10-5 5-5-5'/%3E%3C/svg%3E")
+        center right 20px / 24px 24px no-repeat;
+
+      &:not(.active) {
+        color: var(--dark-gray);
+      }
+
+      &.active {
+        border-color: var(--dark-blue);
+      }
+    }
+  }
+
+  &_select {
+    position: relative;
+  }
+
+  &_list {
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    display: grid;
+    padding: 8px;
+    border-radius: 13px;
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+    transition:
+      opacity 150ms ease-in-out,
+      visibility 150ms ease-in-out;
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &_radio {
+    display: none;
+  }
+
+  &_item {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: background-color 150ms ease-in-out;
+
+    &:hover {
+      background: rgba(#e7e6eb, 0.5);
+    }
+  }
+
+  &_error {
+    color: var(--red);
+    font-size: 13px;
+    font-weight: 300;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 150ms ease-in-out,
+      visibility 150ms ease-in-out;
+  }
+}

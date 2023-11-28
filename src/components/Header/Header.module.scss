@@ -1,0 +1,146 @@
+.header {
+  &_inner {
+    display: grid;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr auto 1fr;
+      column-gap: 12px;
+    }
+
+    @media (max-width: 1023.98px) {
+      column-gap: 58px;
+    }
+
+    @media (min-width: 576px) and (max-width: 1023.98px) {
+      grid-template-columns: 1fr auto auto;
+    }
+
+    @media (max-width: 575.98px) {
+      grid-template-columns: repeat(2, auto);
+      justify-content: space-between;
+    }
+  }
+
+  &_logo {
+    @media (max-width: 575.98px) {
+      height: 40px;
+      width: 114px;
+    }
+  }
+
+  &_btn {
+    @media (min-width: 1024px) {
+      justify-self: end;
+    }
+
+    &.mobile {
+      @media (min-width: 576px) {
+        display: none;
+      }
+    }
+
+    &.desktop {
+      @media (max-width: 575.98px) {
+        display: none;
+      }
+    }
+  }
+
+  &_hamb {
+    $hamb: &;
+
+    display: flex;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    position: relative;
+    z-index: 12;
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+
+    &_icon {
+      left: 5px;
+      top: 10px;
+
+      &,
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        height: 3px;
+        width: 32px;
+        transition: all 250ms ease-in-out;
+        background: var(--blue);
+        border-radius: 3px;
+        display: block;
+      }
+
+      &::before {
+        top: 10px;
+      }
+
+      &::after {
+        top: 20px;
+      }
+    }
+
+    &.active {
+      #{$hamb}_icon {
+        transform: rotate(45deg);
+        top: 20px;
+
+        &::before {
+          opacity: 0;
+          top: 0;
+        }
+
+        &::after {
+          transform: rotate(-90deg);
+          top: 0;
+        }
+      }
+    }
+  }
+
+  &_nav {
+    @media (max-width: 1023.98px) {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      transition-timing-function: ease-in-out;
+      transition-duration: 250ms;
+      transition-property: transform, opacity, visibility;
+      background: linear-gradient(
+        180deg,
+        rgba(#fff, 0.85) 0%,
+        rgba(#fff, 0.5) 100%
+      );
+      backdrop-filter: blur(6.5px);
+      inset: 0;
+      height: 100vh;
+      height: 100dvh;
+      z-index: 11;
+      padding-top: 120px;
+      padding-bottom: min(15.6vh, 100px);
+      transform: translate3d(0, -20px, 0);
+      display: grid;
+      place-content: center;
+      justify-items: center;
+
+      &.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      row-gap: 52px;
+    }
+  }
+}

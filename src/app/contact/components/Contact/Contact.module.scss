@@ -1,0 +1,126 @@
+.contact {
+  @media (min-width: 576px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  @media (max-width: 575.98px) {
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+
+  &_inner {
+    border-radius: 25px;
+    background: linear-gradient(
+      180deg,
+      rgba(#fff, 0.85) 0%,
+      rgba(#fff, 0.5) 100%
+    );
+    backdrop-filter: blur(6.5px);
+    transform: translateZ(0);
+
+    @media (min-width: 1024px) {
+      padding: 60px 40px;
+    }
+
+    @media (min-width: 576px) and (max-width: 1023.98px) {
+      padding: 48px 16px;
+    }
+
+    @media (max-width: 575.98px) {
+      padding: 32px 16px 48px;
+    }
+  }
+
+  &_wrap {
+    max-width: 1096px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 315px minmax(auto, 648px);
+      column-gap: 40px;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 576px) and (max-width: 1023.98px) {
+      row-gap: 60px;
+    }
+
+    @media (max-width: 575.98px) {
+      row-gap: 48px;
+    }
+  }
+
+  &_title {
+    @media (max-width: 575.98px) {
+      font-size: 17px;
+    }
+  }
+
+  &_info {
+    display: grid;
+
+    @media (min-width: 1024px) {
+      row-gap: 60px;
+    }
+
+    @media (min-width: 576px) and (max-width: 1023.98px) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+    }
+
+    @media (max-width: 575.98px) {
+      row-gap: 48px;
+    }
+  }
+
+  &_logo {
+    @media (max-width: 575.98px) {
+      height: 36px;
+      width: 103px;
+    }
+  }
+
+  &_form {
+    display: grid;
+
+    @media (min-width: 576px) {
+      row-gap: 40px;
+    }
+
+    @media (max-width: 575.98px) {
+      row-gap: 32px;
+    }
+  }
+}
+
+.lights {
+  left: 50%;
+  transform: translateX(-50%);
+  margin-right: -26px;
+
+  @media (min-width: 1024px) {
+    top: 201px;
+    width: min(125%, 1794px);
+  }
+
+  @media (max-width: 1023.98px) {
+    top: 283px;
+    width: 100%;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+
+    @media (max-width: 1023.98px) {
+      top: 373px;
+    }
+  }
+}
